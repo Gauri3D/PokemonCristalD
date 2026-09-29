@@ -16,7 +16,7 @@
 const start=document.getElementById('start'),welcome=document.getElementById('welcome'),statusText=document.getElementById('status');let loading=false,timer;
 function recover(message){clearTimeout(timer);statusText.textContent=message;start.disabled=false;start.textContent='REINTENTAR';start.onclick=()=>location.reload();}
 start.addEventListener('click',()=>{if(loading)return;loading=true;start.disabled=true;start.textContent='PREPARANDO JUEGO…';statusText.textContent='Cargando el emulador…';
-window.EJS_player='#game';window.EJS_core='gbc';window.EJS_gameName='Pokemon Cristal';window.EJS_color='#0064ff';window.EJS_startOnLoaded=false;window.EJS_AdPhant_MobileGamepad=true;window.EJS_mouse=false;window.EJS_GamepadOpacity='0.7';window.EJS_scaleControls=true;window.EJS_forceLocalSave=true;window.EJS_pathtodata='https://cdn.emulatorjs.org/stable/data/';window.EJS_gameUrl='./PokemonCristal.gbc';window.EJS_ready=()=>{clearTimeout(timer);welcome.hidden=true;};
+window.EJS_player='#game';window.EJS_core='gb';window.EJS_gameName='Pokemon Cristal';window.EJS_color='#0064ff';window.EJS_startOnLoaded=false;window.EJS_AdPhant_MobileGamepad=true;window.EJS_mouse=false;window.EJS_GamepadOpacity='0.7';window.EJS_scaleControls=true;window.EJS_forceLocalSave=true;window.EJS_pathtodata='https://cdn.emulatorjs.org/stable/data/';window.EJS_gameUrl='./PokemonCristal.gbc';window.EJS_ready=()=>{clearTimeout(timer);welcome.hidden=true;};
 const script=document.createElement('script');script.src=window.EJS_pathtodata+'loader.js';script.onerror=()=>recover('No se pudo descargar EmulatorJS. Comprueba tu conexión.');timer=setTimeout(()=>{if(!welcome.hidden)recover('La carga está tardando demasiado. Pulsa REINTENTAR.');},30000);document.body.appendChild(script);
 });
 </script>
